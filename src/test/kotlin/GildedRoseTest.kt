@@ -78,8 +78,8 @@ internal class GildedRoseTest {
     }
 
     @Test
-    fun `Backstage passes increases by 3 when SellIn is 5 days or less`() {
-        val backstagePass = listOf(Item("Backstage passes to a TAFKAL80ETC concert", 4, 5))
+    fun `Backstage pass item quality increases by 3 when SellIn is 5 days or less`() {
+        val backstagePass = listOf(Item("Backstage passes to a TAFKAL80ETC concert", 5, 5))
         val app = GildedRose(backstagePass)
         app.updateQuality()
         assertEquals(8, app.items[0].quality)
@@ -95,5 +95,20 @@ internal class GildedRoseTest {
         assertEquals(0, app.items[0].quality)
     }
 
+    @Test
+    fun `Print item`() {
+        val item = Item("milk", sellIn = 10, quality = 10)
+        assertEquals( "milk, 10, 10", item.toString())
+    }
+
+    @Test
+    fun `Sulfuras does not decrease in quality even after SellIn period`() {
+        val sulfuras = listOf(Item("Sulfuras, Hand of Ragnaros", 1, 80))
+        val app = GildedRose(sulfuras)
+        repeat(5){
+            app.updateQuality()
+        }
+        assertEquals(80, app.items[0].quality)
+    }
 }
 
