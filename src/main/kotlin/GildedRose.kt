@@ -1,6 +1,5 @@
 package org.example
 
-private const val UP_BY_ONE = 1
 class GildedRose(var items: List<Item>) {
 
     fun updateQuality() {

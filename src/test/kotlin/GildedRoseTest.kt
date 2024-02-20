@@ -103,11 +103,9 @@ internal class GildedRoseTest {
 
     @Test
     fun `Sulfuras does not decrease in quality even after SellIn period`() {
-        val sulfuras = listOf(Item("Sulfuras, Hand of Ragnaros", 1, 80))
+        val sulfuras = listOf(Item("Sulfuras, Hand of Ragnaros", -1, 80))
         val app = GildedRose(sulfuras)
-        repeat(5){
-            app.updateQuality()
-        }
+        app.updateQuality()
         assertEquals(80, app.items[0].quality)
     }
 }
