@@ -19,6 +19,7 @@ private fun Item.updateForEach() {
             else 1
         }
         "Sulfuras, Hand of Ragnaros" -> 0
+        "Conjured Mana Cake" -> -2
         else -> -1
     })
 
@@ -30,6 +31,7 @@ private fun Item.updateForEach() {
                 "Aged Brie" -> 1
                 "Backstage passes to a TAFKAL80ETC concert" -> -quality
                 "Sulfuras, Hand of Ragnaros" -> 0
+                "Conjured Mana Cake" -> -2
                 else -> -1
             }
         )

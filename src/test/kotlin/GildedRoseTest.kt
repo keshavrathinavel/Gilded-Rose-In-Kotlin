@@ -117,5 +117,21 @@ internal class GildedRoseTest {
         assertEquals(80, app.items[0].quality)
     }
 
+    @Test
+    fun `Conjured item quality degrades twice as fast`()
+    {
+        val conjured = listOf(Item("Conjured Mana Cake", 3, 10))
+        val app = GildedRose(conjured)
+        app.updateQuality()
+        assertEquals(8, app.items[0].quality)
+    }
+
+    @Test
+    fun `Conjured item quality degrades 4 times as fast when sellIn is lesser than 0`() {
+        val conjured = listOf(Item("Conjured Mana Cake", 0, 10))
+        val app = GildedRose(conjured)
+        app.updateQuality()
+        assertEquals(6, app.items[0].quality)
+    }
 }
 
