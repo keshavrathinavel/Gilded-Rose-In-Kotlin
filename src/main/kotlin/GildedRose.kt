@@ -10,14 +10,15 @@ class GildedRose(var items: List<Item>) {
 }
 
 private fun Item.updateForEach() {
-    if (name == "Aged Brie") updateQuality()
-    else if (name == "Backstage passes to a TAFKAL80ETC concert") {
-        if (sellIn < 6) updateQuality(3)
-        else if (sellIn < 11) updateQuality(2)
-        else updateQuality()
-    }
-    else if (quality > 0) {
-        quality -= (if (name == "Sulfuras, Hand of Ragnaros") 0 else 1)
+    when (name) {
+        "Aged Brie" -> updateQuality()
+        "Backstage passes to a TAFKAL80ETC concert" -> {
+            if (sellIn < 6) updateQuality(3)
+            else if (sellIn < 11) updateQuality(2)
+            else updateQuality()
+        }
+        "Sulfuras, Hand of Ragnaros" -> updateQuality(0)
+        else -> updateQuality(-1)
     }
 
     sellIn -= if (name == "Sulfuras, Hand of Ragnaros") 0 else 1
