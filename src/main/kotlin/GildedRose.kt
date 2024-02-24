@@ -1,5 +1,6 @@
 package org.example
 
+
 class GildedRose(var items: List<Item>) {
 
     fun updateQuality() {
