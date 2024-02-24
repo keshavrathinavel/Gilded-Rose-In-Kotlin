@@ -51,6 +51,7 @@ internal class GildedRoseTest {
         assertEquals(14, app.items[0].quality)
     }
 
+
     @Test
     fun `The Quality of an item is never more than 50`() {
         val agedBrie = listOf(Item("Aged Brie", 10, 10))
@@ -105,7 +106,7 @@ internal class GildedRoseTest {
 
     @Test
     fun `Print item`() {
-        val item = Item("milk", sellIn = 10, quality = 10)
+        val item = Item("milk", sellInDays = 10, quality = 10)
         assertEquals( "milk, 10, 10", item.toString())
     }
 
