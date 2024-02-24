@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 internal class GildedRoseTest {
-
     @Test
     fun `Assert Item name persists`() {
         val items = listOf(Item("foo", 0, 0))
@@ -12,6 +11,7 @@ internal class GildedRoseTest {
         gildedRose.updateQuality()
         assertEquals("foo", gildedRose.items[0].name)
     }
+
 
     @Test
     fun `Quality decreases by 1 towards SellIn`() {
@@ -45,12 +45,19 @@ internal class GildedRoseTest {
     fun `Aged Brie actually increases in Quality the older it gets`() {
         val agedBrie = listOf(Item("Aged Brie", 4, 10))
         val gildedRose = GildedRose(agedBrie)
-        repeat(4) {
+        repeat(5) {
             gildedRose.updateQuality()
         }
-        assertEquals(14, gildedRose.items[0].quality)
+        assertEquals(15, gildedRose.items[0].quality)
     }
 
+    @Test
+    fun `Aged Brie increases in quality past sellIn date`() {
+        val agedBrie = listOf(Item("Aged Brie", 0, 10))
+        val gildedRose = GildedRose(agedBrie)
+        gildedRose.updateQuality()
+        assertEquals(11, gildedRose.items[0].quality)
+    }
 
     @Test
     fun `The Quality of an item is never more than 50`() {
@@ -98,7 +105,7 @@ internal class GildedRoseTest {
     fun `Quality drops to 0 after the concert`() {
         val backstagePass = listOf(Item("Backstage passes to a TAFKAL80ETC concert", 3, 10))
         val gildedRose = GildedRose(backstagePass)
-        repeat(4) {
+        repeat(5) {
             gildedRose.updateQuality()
         }
         assertEquals(0, gildedRose.items[0].quality)
