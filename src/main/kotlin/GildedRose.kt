@@ -43,7 +43,7 @@ private fun Item.updateSellInDays(): Item {
     return this
 }
 
-fun Item.updateQuality(change: Int = 1): Item {
+fun Item.updateQuality(change: Int): Item {
     if (quality in 1..49) quality = (quality + change)
         .coerceIn(minimumValue = 0, maximumValue = 50)
     return this

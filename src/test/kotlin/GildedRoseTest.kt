@@ -12,7 +12,6 @@ internal class GildedRoseTest {
         assertEquals("foo", gildedRose.items[0].name)
     }
 
-
     @Test
     fun `Quality decreases by 1 towards SellIn`() {
         val items = listOf(Item("milk", 10, 10))
