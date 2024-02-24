@@ -48,7 +48,7 @@ internal class GildedRoseTest {
         repeat(5) {
             gildedRose.updateQuality()
         }
-        assertEquals(15, gildedRose.items[0].quality)
+        assertEquals(16, gildedRose.items[0].quality)
     }
 
     @Test
@@ -56,7 +56,7 @@ internal class GildedRoseTest {
         val agedBrie = listOf(Item("Aged Brie", 0, 10))
         val gildedRose = GildedRose(agedBrie)
         gildedRose.updateQuality()
-        assertEquals(11, gildedRose.items[0].quality)
+        assertEquals(12, gildedRose.items[0].quality)
     }
 
     @Test

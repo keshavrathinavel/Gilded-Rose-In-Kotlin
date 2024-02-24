@@ -14,24 +14,17 @@ private fun Item.updateForEach() {
 
     updateQuality(
         when (name) {
-        "Aged Brie" -> 1
+        "Aged Brie" -> if (expired) 2 else 1
         "Backstage passes to a TAFKAL80ETC concert" -> {
-            if (sellInDays < 5) 3
-            else if (sellInDays < 10) 2
-            else 1
+            if (expired) -quality else when {
+                sellInDays < 5 -> 3
+                sellInDays < 10 -> 2
+                else -> 1
+            }
         }
         "Sulfuras, Hand of Ragnaros" -> 0
-        "Conjured Mana Cake" -> -2
-        else -> -1
-    })
-
-    updateQuality(
-        when(name) {
-            "Aged Brie" -> if (expired) 1 else 0
-            "Backstage passes to a TAFKAL80ETC concert" -> if (expired) 1 else -quality
-            "Sulfuras, Hand of Ragnaros" -> if (expired) 1 else 0
-            "Conjured Mana Cake" -> if (expired) 1 else -2
-            else -> if (expired) 1 else -1
+        "Conjured Mana Cake" -> if (expired) -4 else -2
+        else -> if (expired) -2 else -1
         }
     )
 }
