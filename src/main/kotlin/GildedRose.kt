@@ -11,7 +11,8 @@ class GildedRose(var items: List<Item>) {
 }
 
 private fun Item.updateForEach() {
-    updateSellInDays().updateItemQuality()
+    updateSellInDays()
+    updateItemQuality()
 }
 
 private fun Item.updateItemQuality() {
@@ -35,16 +36,14 @@ private fun Item.updateItemQuality() {
 
 private val Item.expired get() = sellInDays < 0
 
-private fun Item.updateSellInDays(): Item {
+private fun Item.updateSellInDays() {
     sellInDays -= when (name) {
         "Sulfuras, Hand of Ragnaros" -> 0
         else -> 1
     }
-    return this
 }
 
-fun Item.updateQuality(change: Int): Item {
+fun Item.updateQuality(change: Int) {
     if (quality in 1..49) quality = (quality + change)
         .coerceIn(minimumValue = 0, maximumValue = 50)
-    return this
 }
