@@ -1,6 +1,5 @@
 package org.example
 
-
 class GildedRose(var items: List<Item>) {
 
     fun updateQuality() {
@@ -26,7 +25,6 @@ private fun Item.updateItemQuality() {
                     else -> 1
                 }
             }
-
             "Sulfuras, Hand of Ragnaros" -> 0
             "Conjured Mana Cake" -> if (expired) -4 else -2
             else -> if (expired) -2 else -1
@@ -44,6 +42,9 @@ private fun Item.updateSellInDays() {
 }
 
 fun Item.updateQuality(change: Int) {
-    if (quality in 1..49) quality = (quality + change)
-        .coerceIn(minimumValue = 0, maximumValue = 50)
+    quality = when (name) {
+        "Sulfuras, Hand of Ragnaros" -> 80
+        else -> (quality + change)
+            .coerceIn(minimumValue = 0, maximumValue = 50)
+    }
 }
