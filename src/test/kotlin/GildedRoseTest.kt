@@ -7,14 +7,14 @@ internal class GildedRoseClientTest {
     @Test
     fun `Assert Item name persists`() {
         val items = listOf(Item("foo", 0, 0))
-        val gildedRose = GildedRoseClientClient(items)
+        val gildedRose = GildedRose(items)
         assertEquals("foo", gildedRose.items[0].name)
     }
 
     @Test
     fun `Quality decreases by 1 towards SellIn`() {
         val items = listOf(Item("milk", 10, 10))
-        val gildedRose = GildedRoseClientClient(items)
+        val gildedRose = GildedRose(items)
         gildedRose.updateItemProperties()
         assertEquals(9, gildedRose.items[0].quality)
     }
@@ -22,7 +22,7 @@ internal class GildedRoseClientTest {
     @Test
     fun `Once the sell by date has passed, Quality degrades twice as fast`() {
         val items = listOf(Item("milk", 0, 10))
-        val gildedRose = GildedRoseClientClient(items)
+        val gildedRose = GildedRose(items)
         gildedRose.updateItemProperties()
         assertEquals(9, gildedRose.items[0].quality)
         gildedRose.updateItemProperties()
