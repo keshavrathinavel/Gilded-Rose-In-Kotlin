@@ -1,11 +1,11 @@
 package org.example
 
-open class Item(
+open class Item (
     val name: String,
-    var sellInDays: Int,
+    var expiryDate: Int,
     var quality: Int
 ) {
     override fun toString(): String {
-        return "$name, $sellInDays, $quality"
+        return "$name, $expiryDate, $quality"
     }
 }

@@ -112,7 +112,7 @@ internal class GildedRoseTest {
 
     @Test
     fun `Print item`() {
-        val item = Item("milk", sellInDays = 10, quality = 10)
+        val item = Item("milk", expiryDate = 10, quality = 10)
         assertEquals( "milk, 10, 10", item.toString())
     }
 

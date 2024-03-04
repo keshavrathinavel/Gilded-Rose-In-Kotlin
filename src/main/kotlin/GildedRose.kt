@@ -10,7 +10,7 @@ class GildedRose(var items: List<Item>) {
 }
 
 private fun Item.updateForEach() {
-    updateSellInDays()
+    updateExpiryDate()
     updateItemQuality()
 }
 
@@ -20,8 +20,8 @@ private fun Item.updateItemQuality() {
             "Aged Brie" -> if (expired) 2 else 1
             "Backstage passes to a TAFKAL80ETC concert" -> {
                 if (expired) -quality else when {
-                    sellInDays < 5 -> 3
-                    sellInDays < 10 -> 2
+                    expiryDate < 5 -> 3
+                    expiryDate < 10 -> 2
                     else -> 1
                 }
             }
@@ -32,10 +32,10 @@ private fun Item.updateItemQuality() {
     )
 }
 
-private val Item.expired get() = sellInDays < 0
+private val Item.expired get() = expiryDate < 0
 
-private fun Item.updateSellInDays() {
-    sellInDays -= when (name) {
+private fun Item.updateExpiryDate() {
+    expiryDate -= when (name) {
         "Sulfuras, Hand of Ragnaros" -> 0
         else -> 1
     }
