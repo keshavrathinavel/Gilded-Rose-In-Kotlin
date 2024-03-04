@@ -1,6 +1,6 @@
 package org.example
 
-class GildedRoseClient(var items: List<Item>) {
+class GildedRoseSingleFile(var items: List<Item>) {
 
     fun updateQuality() {
         for (item in items.indices) {

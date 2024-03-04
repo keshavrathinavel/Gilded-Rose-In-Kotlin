@@ -4,5 +4,10 @@ import org.example.Item
 
 interface ItemStrategy {
     fun update(item: Item): Pair<Int, Int>
-    fun expired(item: Item): Boolean = item.sellIn < 0
+    fun applyQualityBounds(num: Int) {
+        num.coerceIn(0, 50)
+    }
+    fun hasExpired(item: Item): Boolean = item.sellIn < 0
 }
+
+

@@ -20,7 +20,7 @@ class RegressionTest {
             Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
             Item("Conjured Mana Cake", 3, 6)
         )
-        val gildedRose = GildedRoseClient(items)
+        val gildedRose = GildedRoseSingleFile(items)
 
         (0..<2).forEach { day ->
             log("-------- day $day --------")
