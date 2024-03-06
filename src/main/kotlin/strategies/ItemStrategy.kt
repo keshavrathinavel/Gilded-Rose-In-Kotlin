@@ -3,7 +3,7 @@ package org.example.strategies
 import org.example.Item
 
 interface ItemStrategy {
-    fun update(item: Item): Pair<Int, Int>
+    fun updateItemProperties(item: Item): Pair<Int, Int>
     fun applyQualityBounds(num: Int) {
         num.coerceIn(0, 50)
     }

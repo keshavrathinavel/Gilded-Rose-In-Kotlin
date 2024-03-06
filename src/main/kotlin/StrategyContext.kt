@@ -13,6 +13,6 @@ class StrategyContext(name: String) {
     }
 
     fun updateQualityAndExpiry(item: Item): Pair<Int, Int> {
-        return strategyForItem.update(item)
+        return strategyForItem.updateItemProperties(item)
     }
 }

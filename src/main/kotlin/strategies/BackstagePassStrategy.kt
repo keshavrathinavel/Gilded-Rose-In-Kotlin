@@ -5,7 +5,7 @@ import org.example.Item
 private const val ZERO_WHEN_EXPIRED = 0
 
 class BackstagePassStrategy : ItemStrategy {
-    override fun update(item: Item): Pair<Int, Int> {
+    override fun updateItemProperties(item: Item): Pair<Int, Int> {
         when {
             hasExpired(item) -> item.quality = ZERO_WHEN_EXPIRED
             item.sellIn < 5 -> item.quality += 3

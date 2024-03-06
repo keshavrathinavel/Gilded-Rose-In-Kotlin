@@ -6,7 +6,7 @@ private const val BY_ONE_FOR_AGED_BRIE = 1
 private const val BY_TWO_FOR_AGED_BRIE = 2
 
 class AgedBrieStrategy: ItemStrategy {
-    override fun update(item: Item): Pair<Int, Int> {
+    override fun updateItemProperties(item: Item): Pair<Int, Int> {
         when {
             hasExpired(item) -> item.quality += BY_TWO_FOR_AGED_BRIE
             else -> item.quality += BY_ONE_FOR_AGED_BRIE

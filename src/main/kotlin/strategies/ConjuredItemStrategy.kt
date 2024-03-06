@@ -6,7 +6,7 @@ private const val QUALITY_UPDATE_EXPIRED = 4
 private const val QUALITY_UPDATE = 2
 
 class ConjuredItemStrategy : ItemStrategy {
-    override fun update(item: Item): Pair<Int, Int> {
+    override fun updateItemProperties(item: Item): Pair<Int, Int> {
         if (hasExpired(item)) {
             item.quality -= QUALITY_UPDATE_EXPIRED
         }
